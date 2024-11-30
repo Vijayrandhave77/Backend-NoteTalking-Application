@@ -51,10 +51,10 @@ router.post("/api/signup", async (req, res) => {
       }
     });
 
-    setTimeout(async () => {
-      await Signup.deleteOne({otp:otp});
-      console.log("OTP Expire");
-    }, 60000);
+    // setTimeout(async () => {
+    //   await Signup.deleteOne({otp:otp});
+    //   console.log("OTP Expire");
+    // }, 60000);
   } catch (error) {
     res.status(500).json({ error });
   }
