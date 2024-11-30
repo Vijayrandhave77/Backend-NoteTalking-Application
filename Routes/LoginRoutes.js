@@ -22,16 +22,18 @@ router.post('/api/login',async(req,res)=>{
         }
         
         const token = generateToken(payload)
-        res.cookie('jwtToken',token,{
+        res.cookie('NewjwtToken',token,{
             expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), 
             httpOnly:true,
             secure: true,  
             sameSite: 'none', 
           })
 
-          
-        // delete user 
-     await Signup.deleteOne({otp:{$eq :otp}})
+
+        // delete user
+        setTimeout(async() => {
+            await Signup.deleteOne({otp:{$eq :otp}})   
+        }, 5000); 
 
 
         res.json({token})
