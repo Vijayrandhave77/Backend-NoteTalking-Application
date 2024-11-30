@@ -1,10 +1,11 @@
 const express = require('express')
-const router = express.Router() 
+const router = express.Router()
+let cookieParser = require('cookie-parser'); 
 const bodyparser = require('body-parser')
 router.use(bodyparser.json())
 const Signup = require('../Models/SignupSchema')
 const {jwtAuthMiddleware,generateToken} = require('../JWT')
-
+router.use(cookieParser()); 
 
 router.post('/api/login',async(req,res)=>{
     try {
