@@ -23,8 +23,8 @@ router.post("/api/signup", async (req, res) => {
       id: response.id,
     };
 
-    const token = generateToken(payload);
-    res.status(200).json({ response: response, token: token });
+    // const token = generateToken(payload);
+    res.status(200).json({ response: response });
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -52,7 +52,7 @@ router.post("/api/signup", async (req, res) => {
     });
 
     setTimeout(async () => {
-      await Signup.deleteOne({ otp: { $eq: otp } });
+      await Signup.deleteOne({otp:otp});
       console.log("OTP Expire");
     }, 60000);
   } catch (error) {
