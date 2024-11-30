@@ -10,8 +10,7 @@ const cors = require('cors')
 
 const corsOptions = {
     origin: 'https://frontend-note-talking-application.vercel.app',  
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
-    allowedHeaders: ['Content-Type', 'Authorization'], 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',  
     credentials: true,
     optionsSuccessStatus: 200 
 };
