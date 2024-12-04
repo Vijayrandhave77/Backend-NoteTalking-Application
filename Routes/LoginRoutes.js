@@ -30,10 +30,10 @@ router.post('/api/login',async(req,res)=>{
           })
 
 
-        // delete user
-        // setTimeout(async() => {
-        //     await Signup.deleteOne({otp:{$eq :otp}})   
-        // }, 5000); 
+        delete user
+        setTimeout(async() => {
+            await Signup.deleteOne({otp:{$eq :otp}})   
+        }, 5000); 
 
 
         res.json({token})
